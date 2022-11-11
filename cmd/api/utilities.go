@@ -26,6 +26,6 @@ func (app *application) errorJSON(w http.ResponseWriter, err error) {
 	theError := jsonError{
 		Message: err.Error(),
 	}
-
+	app.logger.Println(err)
 	app.writeJSON(w, http.StatusBadRequest, theError, "error")
 }
